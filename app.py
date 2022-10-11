@@ -1,17 +1,31 @@
-import os
-
-from flask import Flask
+from flask import Flask, jsonify, request
+from constants import DATA_DIR
+from utils import get_data, get_data_by_query
 
 app = Flask(__name__)
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "data")
 
-
-@app.route("/perform_query")
+@app.post("/perform_query")
 def perform_query():
-    # получить параметры query и file_name из request.args, при ошибке вернуть ошибку 400
-    # проверить, что файла file_name существует в папке DATA_DIR, при ошибке вернуть ошибку 400
-    # с помощью функционального программирования (функций filter, map), итераторов/генераторов сконструировать запрос
-    # вернуть пользователю сформированный результат
-    return app.response_class('', content_type="text/plain")
+    """
+    Gets a query both from JSON or address line and uses it to filter file data.
+    :return: filtered data as JSON
+    """
+    req_data = request.get_json()  # get query from JSON
+    # req_data = dict(request.args)  # get query from address line
+
+    try:
+        file_data = get_data(f'{DATA_DIR}/{req_data["file_name"]}')
+        result = get_data_by_query(req_data, file_data)
+
+    except FileNotFoundError:
+        return 'File not found', 400
+
+    except (KeyError, ValueError, IndexError, TypeError):
+        return 'Request is wrong.', 400
+
+    return jsonify(result), 200
+
+
+if __name__ == '__main__':
+    app.run(host="127.0.0.1", port=5000)
