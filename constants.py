@@ -8,7 +8,8 @@ CORRECT_QUERY_VALUES = [
     'map',
     'unique',
     'sort',
-    'limit'
+    'limit',
+    'regex'
 ]
 
 CORRECT_QUERY_KEYS = [
