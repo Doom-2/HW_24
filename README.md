@@ -68,11 +68,11 @@ Requests can be executed from command line (Bash, PowerShell) using `curl` tool 
 
 &nbsp;
 #### Features:
-* Query keys are supported:
-  * `file_name`, `cmd1`, `cmd2`, `cmd3`, `value1`, `value2`, `value3` 
-* Query values of _cmd&lt;n&gt;_ keys are supported:
-  * `filter`, `map`, `unique`, `sort`, `limit`, `regex`
-* Types of `value<n>` keys are supported:
+* Query keys are supported: \
+`file_name`, `cmd1`, `cmd2`, `cmd3`, `value1`, `value2`, `value3` 
+* Query values of _cmd&lt;n&gt;_ key are supported: \
+`filter`, `map`, `unique`, `sort`, `limit`, `regex`
+* Types of `value<n>` key are supported:
   * `filter`: `<str>`, `<int>`
   * `map`, `limit`: `<int>`
   * `regex`: `<str>`
@@ -81,7 +81,7 @@ Requests can be executed from command line (Bash, PowerShell) using `curl` tool 
 
 
   _Notes:_
-  * Some key-value pair(s) may be omitted, e.g. `cmd3` & `value3` as in example below:
+  * Some or all key-value pairs may be omitted, e.g. `cmd3` & `value3` as in example below:
     ```
       file_name=apache_logs.txt&cmd1=filter&value1=POST&cmd2=map&value2=0
     ```
@@ -96,4 +96,4 @@ Requests can be executed from command line (Bash, PowerShell) using `curl` tool 
   * `sorted()` for sort values
   * slices `list[:n]` to limit the result to `n` items
   * `re.findall()` with `filter` & `lambda` to give the result by regex
-  * Added validation of input data using try-except in the perform_query() view-function
+* Validation of input data is used with Try-Except statement in the perform_query() view-function
