@@ -11,8 +11,8 @@ def perform_query():
     Gets a query both from JSON or address line and uses it to filter file data.
     :return: filtered data as JSON
     """
-    req_data = request.get_json()  # get query from JSON
-    # req_data = dict(request.args)  # get query from address line
+    req_data = dict(request.args)  # get query from address line
+    # req_data = request.get_json()  # get query from JSON
 
     try:
         file_data = get_data(f'{DATA_DIR}/{req_data["file_name"]}')
@@ -21,10 +21,13 @@ def perform_query():
     except FileNotFoundError:
         return 'File not found', 400
 
-    except (KeyError, ValueError, IndexError, TypeError):
-        return 'Request is wrong.', 400
+    except KeyError:
+        return 'Request is wrong. Query key(s) not allowed', 400
 
-    return jsonify(result), 200
+    except (ValueError, IndexError, TypeError):
+        return 'Request is wrong. Query value(s) not allowed', 400
+
+    return result, 200
 
 
 if __name__ == '__main__':

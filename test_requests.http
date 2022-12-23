@@ -4,6 +4,16 @@ POST  http://localhost:5000/perform_query?file_name=apache_logs.txt&cmd1=filter&
 ###
 
 
+POST  http://localhost:5000/perform_query?file_name=apache_logs.txt&cmd1=limit&value1=232&cmd2=filter&value2=Ubuntu&cmd3=map&value3=0
+
+###
+
+
+POST  http://localhost:5000/perform_query?file_name=apache_logs.txt&cmd1=map&value1=5&cmd2=unique&cmd3=sort&value3=asc
+
+###
+
+
 POST  http://localhost:5000/perform_query
 Accept: application/json
 Content-Type: application/json
