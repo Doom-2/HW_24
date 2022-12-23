@@ -51,7 +51,8 @@ Requests can be executed from command line (Bash, PowerShell) using `curl` tool 
       "cmd1": "map",
       "value1": "5",
       "cmd2": "unique",
-      "value2": 0
+      "value2": 0,
+      "cmd3": "sort"
       }' | json_pp
       ``` 
     * ```
@@ -60,9 +61,10 @@ Requests can be executed from command line (Bash, PowerShell) using `curl` tool 
       -d '{
       "file_name": "apache_logs.txt",
       "cmd1": "regex",
-      "value1": "images\/\\w+\\.png",
-      "cmd2": "limit",
-      "value2": 10
+      "value1": "files\/\\S+\\.exe",
+      "cmd2": "map",
+      "value2": 0,
+      "cmd3": "unique"
       }' | json_pp
       ```
 
