@@ -15,7 +15,7 @@ Requests can be executed from command line (Bash, PowerShell) using `curl` tool 
 
     ![screenshot_1.png](screenshot_1.png)
 
-  * Type the following requests and see the result:
+  * Run the following commands from project root and see the result:
     * ```
       curl -X POST "http://localhost:5000/perform_query?file_name=apache_logs.txt&cmd1=filter&value1=POST&cmd2=map&value2=0" | json_pp
       ```
@@ -31,7 +31,7 @@ Requests can be executed from command line (Bash, PowerShell) using `curl` tool 
 
     ![screenshot_2.png](screenshot_2.png)
 
-  * Type the following requests and see the result:
+  * Run the following commands from project root and see the result:
     * ```
       curl -X POST http://localhost:5000/perform_query \
       -H 'Content-Type: application/json' \
