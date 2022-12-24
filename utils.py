@@ -1,6 +1,6 @@
 import re
 from re import Pattern
-from typing import Any
+from typing import Any, Optional
 from constants import CORRECT_QUERY_KEYS, CORRECT_QUERY_VALUES
 
 
@@ -31,7 +31,7 @@ def unique_query(data: list[str]) -> list[str]:
     return list(set(data))
 
 
-def sort_query(param: str, data: list[str]) -> list[str]:
+def sort_query(param: Optional[str], data: list[str]) -> list[str]:
     if param == 'asc':
         reverse = False
     else:

@@ -1,4 +1,5 @@
-from flask import Flask, jsonify, request
+from typing import Union, Tuple, List
+from flask import Flask, request
 from constants import DATA_DIR
 from utils import get_data, get_data_by_query
 
@@ -6,7 +7,7 @@ app = Flask(__name__)
 
 
 @app.post("/perform_query")
-def perform_query():
+def perform_query() -> Union[list[str], Tuple[str, int], Tuple[List[str], int]]:
     """
     Gets a query both from JSON or address line and uses it to filter file data.
     :return: filtered data as JSON
