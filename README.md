@@ -41,7 +41,7 @@
 
 A developer quite often needs to process, e.g. find, convert, sort, etc. large files with the same structure. \
 For example: CSV file with data about users or file with records of server requests (log-file). \
-This application is a flask web server that:
+This application demonstrates a similar functionality and is a Flask server that:
 
 * can process any ASCII file.
 * uses the log file of the Apache web server that contains 10,000 lines.
